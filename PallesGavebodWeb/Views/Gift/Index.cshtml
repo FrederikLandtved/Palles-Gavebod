@@ -1,0 +1,66 @@
+﻿@model IEnumerable<PallesGavebodAPI1.Models.Gift>
+
+@{
+    ViewData["Title"] = "Palles gavebod";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Oversigt over gaver</h2>
+
+<p>
+	<a asp-action="Create">Tilføj gave</a> | 
+	<a asp-action="GirlGifts">Gaver til piger</a> | 
+	<a asp-action="BoyGifts">Gaver til drenge</a>
+
+
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.GiftNumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CreationDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BoyGift)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.GirlGift)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.GiftNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreationDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BoyGift)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GirlGift)
+            </td>
+
+        </tr>
+}
+    </tbody>
+</table>
